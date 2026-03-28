@@ -1,5 +1,6 @@
-import { getCountryByName } from "@/services/countriesApi";
+import axios from "axios";
 import Link from "next/link";
+import { CountryType } from "@/interfaces/country";
 
 type Props = {
   params: Promise<{ name: string }>;
@@ -8,7 +9,11 @@ type Props = {
 export default async function CountryDetail({ params }: Props) {
   const { name } = await params;
 
-  const country = await getCountryByName(name);
+  const res = await axios.get(
+    `https://restcountries.com/v3.1/name/${name}?fields=name,flags,population,capital,subregion,languages,currencies`
+  );
+
+  const country: CountryType = res.data[0];
 
   const languages = country.languages
     ? Object.values(country.languages)

@@ -1,18 +1,18 @@
 "use client";
 
 import { useState } from "react";
-import { Country } from "@/types/country";
-import CountryList from "./CountryList";
+import { CountryType } from "@/interfaces/country";
+import CountryCard from "./CountryCard";
 
 type Props = {
-  countries: Country[];
+  countries: CountryType[];
 };
 
 export default function SearchBar({ countries }: Props) {
-  const [search, setSearch] = useState("");
+  const [text, setText] = useState("");
 
-  const filtered = countries.filter((c) =>
-    c.name.common.toLowerCase().includes(search.toLowerCase())
+  const filteredCountries = countries.filter((country) =>
+    country.name.common.toLowerCase().includes(text.toLowerCase())
   );
 
   return (
@@ -20,11 +20,18 @@ export default function SearchBar({ countries }: Props) {
       <input
         type="text"
         placeholder="Buscar país..."
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
+        value={text}
+        onChange={(e) => setText(e.target.value)}
       />
 
-      <CountryList countries={filtered} />
+      <div className="grid">
+        {filteredCountries.map((country) => (
+          <CountryCard
+            key={country.name.common}
+            country={country}
+          />
+        ))}
+      </div>
     </>
   );
 }

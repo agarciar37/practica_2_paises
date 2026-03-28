@@ -1,4 +1,4 @@
-export type Country = {
+export interface CountryType {
   name: {
     common: string;
     official: string;
@@ -11,4 +11,4 @@ export type Country = {
   subregion?: string;
   languages?: Record<string, string>;
   currencies?: Record<string, { name: string }>;
-};
+}

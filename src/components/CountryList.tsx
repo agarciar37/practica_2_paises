@@ -1,8 +1,8 @@
-import { Country } from "@/types/country";
+import { CountryType } from "@/types/country";
 import CountryCard from "./CountryCard";
 
 type Props = {
-  countries: Country[];
+  countries: CountryType[];
 };
 
 export default function CountryList({ countries }: Props) {

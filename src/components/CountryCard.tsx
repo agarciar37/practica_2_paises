@@ -1,8 +1,8 @@
 import Link from "next/link";
-import { Country } from "@/types/country";
+import { CountryType } from "@/interfaces/country";
 
 type Props = {
-  country: Country;
+  country: CountryType;
 };
 
 export default function CountryCard({ country }: Props) {

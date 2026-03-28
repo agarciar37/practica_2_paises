@@ -1,6 +1,6 @@
 import axios from "axios";
 import SearchBar from "@/components/SearchBar";
-import { CountryType } from "@/interfaces/country";
+import { CountryType } from "@/types/country";
 
 export default async function HomePage() {
   const res = await axios.get(
@@ -11,7 +11,7 @@ export default async function HomePage() {
 
   return (
     <main>
-      <h1>Países del mundo</h1>
+      <h1>Países</h1>
 
       <SearchBar countries={countries} />
     </main>

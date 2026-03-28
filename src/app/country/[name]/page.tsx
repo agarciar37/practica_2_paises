@@ -1,6 +1,6 @@
 import axios from "axios";
 import Link from "next/link";
-import { CountryType } from "@/interfaces/country";
+import { CountryType } from "@/types/country";
 
 type Props = {
   params: Promise<{ name: string }>;

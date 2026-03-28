@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { CountryType } from "@/interfaces/country";
+import { CountryType } from "@/types/country";
 
 type Props = {
   country: CountryType;

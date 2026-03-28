@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { CountryType } from "@/interfaces/country";
+import { CountryType } from "@/types/country";
 import CountryCard from "./CountryCard";
 
 type Props = {
